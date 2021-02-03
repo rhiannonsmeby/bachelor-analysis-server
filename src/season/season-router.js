@@ -30,6 +30,28 @@ seasonRouter
     })
 
 seasonRouter
+    .route('/:show')
+    .all((req, res, next) => {
+        SeasonService.getSeasonsByShow(
+            req.app.get('db'),
+            req.params.show
+        )
+            .then(season => {
+                if (season.length === 0) {
+                    return res.status(404).json({
+                        error: {message: `No seasons match your search`}
+                    })
+                }
+                res.season = season
+                next()
+            })
+            .catch(next)
+    })
+    .get((req, res, next) => {
+        res.json(res.season.map(serializeSeason))
+    })
+
+seasonRouter
     .route('/:show/:season_id')
     .all((req, res, next) => {
         SeasonService.getByShowAndId(
@@ -38,9 +60,9 @@ seasonRouter
             req.params.season_id
         )
             .then(season => {
-                if (!season) {
+                if (season.length === 0) {
                     return res.status(404).json({
-                        error: {message: `Sorry, no shows match your search :/`}
+                        error: {message: `No seasons match your search`}
                     })
                 }
                 res.season = season
@@ -50,28 +72,6 @@ seasonRouter
     })
     .get((req, res, next) => {
         res.json(serializeSeason(res.season))
-        console.log(serializeSeason(res.season))
     })
 
-// seasonRouter
-//     .route('/:season_id')
-//     .all((req, res, next) => {
-//         SeasonService.getById(
-//             req.app.get('db'),
-//             req.params.season_id
-//         )
-//             .then(season => {
-//                 if (!season) {
-//                     return res.status(404).json({
-//                         error: {message: `Sorry, there is no data for that season :(`}
-//                     })
-//                 }
-//                 res.season = season
-//                 next()
-//             })
-//             .catch(next)
-//     })
-//     .get((req, res, next) => {
-//         res.json(serializeSeason(res.season))
-//     })
     module.exports = seasonRouter

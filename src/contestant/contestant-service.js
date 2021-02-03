@@ -18,7 +18,7 @@ const ContestantService = {
         return knex
             .select('*')
             .from('contestant')
-            .where('eliminated', eliminated)
+            .where('eliminated', 'ILIKE', `%${eliminated}%`)
     },
     getByName(knex, contestant_name) {
         return knex

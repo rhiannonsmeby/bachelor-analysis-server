@@ -6,6 +6,7 @@ const helmet = require('helmet')
 const {NODE_ENV} = require('./config')
 const contestantRouter = require('./contestant/contestant-router')
 const seasonRouter = require('./season/season-router')
+const summaryRouter = require('./summary/summary-router')
 
 const app = express()
 
@@ -19,6 +20,7 @@ app.use(cors())
 
 app.use('/api/contestant', contestantRouter)
 app.use('/api/season', seasonRouter)
+app.use('/api/summary', summaryRouter)
 
 app.get('/', (req, res) => {
     res.send('Hello, world!')

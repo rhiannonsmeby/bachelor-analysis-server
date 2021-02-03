@@ -36,9 +36,9 @@ contestantRouter
             req.params.assigned_season
         )
             .then(contestant => {
-                if (!contestant) {
+                if (contestant.length === 0) {
                     return res.status(404).json({
-                        error: {message: `No contesants match your search`}
+                        error: {message: `No contestants match your search`}
                     })
                 }
                 res.json(contestant.map(serializeContestant))
@@ -55,9 +55,9 @@ contestantRouter
             req.params.age
         )
             .then(contestant => {
-                if (!contestant) {
+                if (contestant.length === 0) {
                     return res.status(404).json({
-                        error: {message: `No contesants match your search`}
+                        error: {message: `No contestants match your search`}
                     })
                 }
                 res.json(contestant.map(serializeContestant))
@@ -73,9 +73,9 @@ contestantRouter
             req.params.eliminated
         )
             .then(contestant => {
-                if (!contestant) {
+                if (contestant.length === 0) {
                     return res.status(404).json({
-                        error: {message: `No contesants match your search`}
+                        error: {message: `No contestants match your search`}
                     })
                 }
                 res.json(contestant.map(serializeContestant))
@@ -91,9 +91,9 @@ contestantRouter
             req.params.contestant_name
         )
             .then(contestant => {
-                if (!contestant) {
+                if (contestant.length === 0) {
                     return res.status(404).json({
-                        error: {message: `No contesants match your search`}
+                        error: {message: `No contestants match your search`}
                     })
                 }
                 res.json(contestant.map(serializeContestant))
@@ -109,7 +109,7 @@ contestantRouter
             req.params.job
         )
             .then(contestant => {
-                if(!contestant) {
+                if(contestant.length === 0) {
                     return res.status(404).json({
                         error: {message: `No contestants match your search`}
                     })
@@ -127,7 +127,7 @@ contestantRouter
             req.params.hometown
         )
             .then(contestant => {
-                if(!contestant) {
+                if(contestant.length === 0) {
                     return res.status(404).json({
                         error: {message: `No contestants match your search`}
                     })

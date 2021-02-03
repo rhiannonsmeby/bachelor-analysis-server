@@ -1,30 +1,21 @@
-# Express Boilerplate!
+# Introduction
 
-This is a boilerplate project used for starting new projects!
+This is an API done in node.js/ express that:
+1. Stores season and contestant data on almost all Bachelor and Bachelorette seasons
+2. Stores user-created summaries of the data 
 
-## Set up
+## Use Cases
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+This is for users who are interested in analyzing bachelor/ette related data in order to gleen important insights on the game. To see it in action, explore the client created alongside this API here: //client link here 
 
-1. Clone this repository to your local machine `git clone https://github.com/rhiannonsmeby/express-boilerplate.git NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+## Authorization
 
-## Scripts
+There is no API key required for access 
 
-Start the application `npm start`
-
-Start nodemon for the application `npm run dev`
-
-Run the tests `npm test`
-
-## Deploying
+## Responses
 
 When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's main branch.
 
-## Remember
+## Status Codes
 
 You can generate a UUID for your API token at https://www.uuidgenerator.net/version4
