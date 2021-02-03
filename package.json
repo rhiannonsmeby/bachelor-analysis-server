@@ -9,11 +9,14 @@
     "migrate": "postgrator --config postgrator-config.js",
     "migrate:test": "env NODE_ENV=test npm run migrate",
     "migrate:production": "heroku run npm run migrate",
-    "start": "node src/bachelor-analysis.js",
-    "predeploy": "npm audit",
-    "deploy": "git push heroku main"
+    "start": "node src/server.js",
+    "predeploy": "npm run migrate:production",
+    "deploy": "git push heroku master"
   },
   "keywords": [],
+  "engines": {
+    "node": "12.20.1"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -24,13 +27,14 @@
     "knex": "^0.21.16",
     "morgan": "^1.10.0",
     "pg": "^7.18.2",
-    "uuid": "^8.3.2"
+    "postgrator-cli": "^3.2.0",
+    "uuid": "^8.3.2",
+    "xss": "^1.0.8"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.2.1",
     "nodemon": "^2.0.6",
-    "postgrator-cli": "^3.2.0",
     "supertest": "^6.0.1"
   }
 }
