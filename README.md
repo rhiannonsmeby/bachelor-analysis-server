@@ -16,15 +16,15 @@ There is no API key required for access
 
 If an invalid request is submitted or some other error occurs, the application will respond with a JSON response in the following format:
 
-{error : {message: message would be here}}
+{error : {message: ^^message would be here^^}}
 
 ## Status Codes
 
 The Bachelor Analysis server returns the following status codes:
 
-200	OK
-201	CREATED
-204	NO CONTENT
-400	BAD REQUEST
-404	NOT FOUND
-500	INTERNAL SERVER ERROR
+- 200	OK
+- 201	CREATED
+- 204	NO CONTENT
+- 400	BAD REQUEST
+- 404	NOT FOUND
+- 500	INTERNAL SERVER ERROR
