@@ -16,7 +16,7 @@ There is no API key required for access
 
 If an invalid request is submitted or some other error occurs, the application will respond with a JSON response in the following format:
 
-{error : {message: ^^message would be here^^}}
+{error : {message: message would be here}}
 
 ## Status Codes
 
